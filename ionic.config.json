@@ -1,0 +1,7 @@
+{
+  "name": "kens-bagels-and-coffee",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

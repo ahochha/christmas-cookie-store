@@ -1,0 +1,26 @@
+.cart-label {
+    font-size:45px; 
+    font-weight:bold; 
+    padding-left:50px;
+}
+
+.grid-cart {
+    float: left;
+}
+
+.col-format {
+    padding-right:35px; 
+    padding-left:35px;
+    padding-bottom: 30px;
+}
+
+.row-format:hover {
+    cursor:pointer;
+    background-color: lightgray !important;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+      <button ion-button clear large class="button-core back-button-format nav-button-color" (click)="gotoCookies()">
+          <ion-icon name="arrow-back"></ion-icon>
+      </button>
+      <ion-label class="center-text product-selection-format">Add Cookie</ion-label>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <h2 text-center *ngIf="selectedItem">
+  <img class="image-format" src={{selectedItem.imageLocation}} />
+    {{selectedItem.name}} Cookie
+  </h2>
+  <h3 text-center *ngIf="selectedItem">
+    Price: ${{selectedItem.price}}
+  </h3>
+  <h4 text-center *ngIf="selectedItem">
+    {{selectedItem.description}}
+  </h4>
+  <ion-list>
+    <ion-list-header>
+        Add Ons
+    </ion-list-header>
+    <ion-item *ngFor="let element of addons">
+      <ion-label>{{ element.name }}</ion-label>
+      <ion-label >Price: ${{ element.price }}</ion-label>
+      <ion-checkbox color="dark" [checked]="unchecked" (click)="selectAddon(element)" [(ngModel)]="element.checked"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer style="text-align:center">
+    <button ion-button class="button-core" (click)="addToCart()">Add To Cart</button>
+</ion-footer>

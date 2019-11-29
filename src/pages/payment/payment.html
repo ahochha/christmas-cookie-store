@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title style="text-align:center; font-size:24px">Total Cost Today: ${{total}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <!-- <ion-label style="text-align:center; font-size:16px">Total Cost Today: ${{total}}</ion-label> -->
+  <ion-grid class="grid-bagel">
+    <ion-row>
+      <ion-col>
+        <button ion-button class="button-core" *ngIf="isCard" block large (click)="toggleCard()">
+          <ion-icon name="card"></ion-icon> Credit Card
+        </button>
+        <button ion-button class="button-core" *ngIf="!isCard" block large style="opacity: .3" (click)="toggleCard()">
+          <ion-icon name="card"></ion-icon> Credit Card
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button class="button-core" *ngIf="!isCard" block large (click)="toggleCard()">PayPal</button>
+        <button ion-button class="button-core" *ngIf="isCard" block large style="opacity: .3" (click)="toggleCard()">PayPal</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div *ngIf="isCard; else elseBlock">
+    <form [formGroup]="formGroup">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input formControlName="email" type="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Name on the card</ion-label>
+        <ion-input formControlName="cardName"type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Card Number</ion-label>
+        <ion-input formControlName="cardNumber" type="tel" autocomplete="cc-number" id="cc-number" ccNum>></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>MM/YYYY</ion-label>
+        <ion-input formControlName="cardExpDate" type="tel" type="tel" autocomplete="cc-exp" id="cc-exp" ccExp></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>CVC</ion-label>
+        <ion-input formControlName="cardCvv" type="tel" type="tel" autocomplete="cc-cvc" id="cc-csc" ccCvc></ion-input>
+      </ion-item>
+
+    </ion-list>
+    </form>
+  </div>
+</ion-content>
+<ion-footer style="text-align:center">
+  <button ion-button class="button-core" (click)="checkout()">Checkout</button>
+  <button ion-button class="button-core" (click)="gotoHome()">
+    Return to Home
+  </button>
+</ion-footer>
+
+<ng-template #elseBlock>
+  <a ion-button class="button-core" href="https://www.paypal.com/us/webapps/mpp/pay-online" target="_blank">Launch PayPal!</a>
+</ng-template>

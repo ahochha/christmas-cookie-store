@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="nav-color">
+    <ion-row>
+      <ion-label class="product-label" color="primary">Christmas Cookies</ion-label>
+      <button ion-button clear large class="button-core cart-button-format nav-button-color" (click)="gotoCart()">
+        <ion-icon class="cart-icon-color" name="cart"></ion-icon>
+      </button>
+    </ion-row>
+  </ion-navbar>
+</ion-header>
+<ion-content class="background">
+  <ion-label class="center-text select-label-format" color="primary">Select a Cookie</ion-label>
+  <ion-grid class="grid-product">
+    <ion-row>
+      <ion-col col-sm-6 col-xs-6 col-md-6 col-12 class="col-format" *ngFor="let item of cookies">
+        <button ion-button class="button-core product-button" (click)="itemTapped($event, item)">
+          <ion-label class="center-text" style="margin:0px; text-transform: none; padding-bottom:2px" color="text">{{item.name}}</ion-label>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
