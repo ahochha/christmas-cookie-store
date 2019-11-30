@@ -6,6 +6,7 @@ import { ListPage } from '../list/list';
 import { CartPage } from '../cart-page/cart-page';
 import { Cookie } from '../../models/cookie';
 import { DelayProvider } from '../../providers/delay/delay';
+import { AddOn } from '../../models/add-on';
 
 @Component({
   selector: 'page-item-details',
@@ -27,6 +28,14 @@ export class ItemDetailsPage {
   }
 
   ionViewDidLoad() {
+    this.addons.forEach(a => this.resetCheckboxes(a));
+    //do stuff to update cookie if navigated to from cart page
+  }
+
+  resetCheckboxes(addon: AddOn){
+    if(addon.checked == true){
+      addon.checked = false;
+    }
   }
 
   async addToCart(){
@@ -40,6 +49,7 @@ export class ItemDetailsPage {
   }
 
   selectAddon(element){
+    console.log(element);
     if (this.selectedItem.addOns == undefined){
       this.selectedItem.addOns = [];
     }
