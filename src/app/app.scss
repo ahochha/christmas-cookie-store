@@ -49,6 +49,26 @@
     }
 }
 
+.back-button-format {
+    float:left;
+    width:65px;
+    height:60px;
+}
+
+.nav-header-format {
+    font-size:30px; 
+    font-weight:bold; 
+    padding-right:60px;
+}
+
+.bottom-nav-format {
+    height:63px;
+}
+
+.bottom-nav-text {
+    font-size:20px;
+}
+
 .center {
     display: block;
     margin-left: auto;
@@ -57,6 +77,29 @@
 
 .center-text {
     text-align: center;
+}
+
+.extend-button {
+    width:100%;
+    height:100%;
+}
+
+.half-screen-button {
+    width: 50%;
+    height: 100%;
+}
+
+.footer{
+    background-color: #dddddd !important;
+}
+
+.important-format {
+    font-weight:bold;
+    font-size:22px;
+}
+
+.info-text-format {
+    font-size:20px;
 }
 
 // App Global Sass

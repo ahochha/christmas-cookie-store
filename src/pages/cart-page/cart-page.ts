@@ -117,14 +117,4 @@ export class CartPage {
     const temp = Number(this.tipForm);
     this.tipPrice = temp;
   }
-
-  getAddOns(item : Cookie): string{
-    let formattedString = '+ ';
-    if(item.addOns){
-      item.addOns.forEach(item => {
-        formattedString += item.name + ' + ';
-      })
-    }
-    return formattedString;
-  }
 }

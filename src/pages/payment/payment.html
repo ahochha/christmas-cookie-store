@@ -1,12 +1,13 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title style="text-align:center; font-size:24px">Total Cost Today: ${{total}}</ion-title>
+  <ion-navbar color="nav-color">
+    <ion-row>
+        <ion-label class="center-text nav-header-format pay-header-format" color="primary">Total Cost Today: ${{total}}</ion-label>
+    </ion-row>
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <!-- <ion-label style="text-align:center; font-size:16px">Total Cost Today: ${{total}}</ion-label> -->
-  <ion-grid class="grid-bagel">
-    <ion-row>
+  <ion-grid>
+    <ion-row style="padding-top: 5px">
       <ion-col>
         <button ion-button class="button-core" *ngIf="isCard" block large (click)="toggleCard()">
           <ion-icon name="card"></ion-icon> Credit Card
@@ -23,7 +24,7 @@
   </ion-grid>
   <div *ngIf="isCard; else elseBlock">
     <form [formGroup]="formGroup">
-    <ion-list>
+<!--     <ion-list> -->
       <ion-item>
         <ion-label floating>Email</ion-label>
         <ion-input formControlName="email" type="email"></ion-input>
@@ -45,18 +46,19 @@
         <ion-label floating>CVC</ion-label>
         <ion-input formControlName="cardCvv" type="tel" type="tel" autocomplete="cc-cvc" id="cc-csc" ccCvc></ion-input>
       </ion-item>
-
-    </ion-list>
+<!--     </ion-list> -->
     </form>
   </div>
 </ion-content>
-<ion-footer style="text-align:center">
-  <button ion-button class="button-core" (click)="checkout()">Checkout</button>
-  <button ion-button class="button-core" (click)="gotoHome()">
-    Return to Home
-  </button>
+<ion-footer class="bottom-nav-format">
+  <button ion-button clear class="button-core nav-button-color half-screen-button bottom-nav-text" (click)="checkout()">Checkout</button>
+  <button ion-button clear class="button-core nav-button-color half-screen-button bottom-nav-text" style="float:left" (click)="gotoHome()">Return to Home</button>
 </ion-footer>
 
 <ng-template #elseBlock>
-  <a ion-button class="button-core" href="https://www.paypal.com/us/webapps/mpp/pay-online" target="_blank">Launch PayPal!</a>
+  <div class="stick-to-bottom">
+      <div class="paypal-button-container">
+          <a ion-button class="button-core extend-button paypal-button" href="https://www.paypal.com/us/webapps/mpp/pay-online" target="_blank">Launch PayPal!</a>
+      </div>
+  </div>
 </ng-template>

@@ -1,9 +1,22 @@
-button:active{
-    border-color:black;
-    border-radius: 4px;
+.stick-to-bottom {
+    position: absolute;
+    bottom: 10px;
+    width:100%;
 }
 
-button:focus{
-    border-color:black;
-    border-radius: 4px;
+.paypal-button-container {
+    margin-right: 10px;
+    margin-left:10px;
+}
+
+.paypal-button {
+    padding-top:40px;
+    padding-bottom:40px;
+    font-size:25px;
+}
+
+.pay-header-format {
+    margin-left:0px;
+    margin-right:0px;
+    padding: 0px;
 }

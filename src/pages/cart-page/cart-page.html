@@ -1,49 +1,56 @@
 <ion-header class="header-format">
-  <ion-navbar>
+  <ion-navbar color="nav-color">
     <ion-row>
-      <button class="button-core" ion-button (click)="gotoCookies()">
+      <button ion-button clear large class="button-core back-button-format nav-button-color" (click)="gotoCookies()">
         <ion-icon name="arrow-back"></ion-icon>
       </button>
-      <ion-label class="cart-label">Cart</ion-label>
+      <ion-label class="center-text nav-header-format" color="primary">Cart</ion-label>
     </ion-row>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <button class="button-core" ion-button (click)="clearCart()">
-      Clear Cart &nbsp;
-      <ion-icon name="trash"></ion-icon>
-    </button>
-
+  <ion-card>
     <ion-grid>
-        <ion-row class="row-format" *ngFor="let item of cookies" (click)="itemDetails(item)">
+        <ion-row *ngFor="let item of cookies" (click)="itemDetails(item)">
           <ion-col>
-            <ion-label>{{item.name}} Cookie {{ getAddOns(item)}}</ion-label>
+            <img class="cart-image-format" src={{item.imageLocation}} />
+          </ion-col>
+          <ion-col text-wrap class="name-col-width">
+            <ion-label class="cart-text-format">{{item.name}} Cookie</ion-label>
+            <ion-label class="cart-text-format" *ngFor="let addon of item.addOns">
+              - {{addon.name}}
+            </ion-label>
           </ion-col>
           <ion-col>
-            <ion-label>${{getPrice(item)}}</ion-label>
+            <ion-label class="center-text cart-price-format">${{getPrice(item)}}</ion-label>
           </ion-col>
           <ion-col>
-            <button ion-button class="button-core" (click)="removeItem(item)"><ion-icon name="trash"></ion-icon></button>
+            <button ion-button class="button-core" style="float:right" (click)="removeItem(item)"><ion-icon name="trash"></ion-icon></button>
           </ion-col>
         </ion-row>
     </ion-grid>
-  <ion-list>
-    <ion-list-header>Tip</ion-list-header>
+    <button class="button-core clear-cart-button" ion-button (click)="clearCart()">
+        Clear Cart &nbsp;
+        <ion-icon name="trash"></ion-icon>
+    </button>
+  </ion-card>
+  <ion-card style="padding-left:10px">
+    <ion-label class="important-format">Tip</ion-label>
     <ion-row>
-      <button ion-button class="button-core" (click)="updateTip(.10)">10%</button>
-      <button ion-button class="button-core" (click)="updateTip(.15)">15%</button>
-      <button ion-button class="button-core" (click)="updateTip(.20)">20%</button>
+      <button ion-button clear class="button-core nav-button-color" (click)="updateTip(.10)">10%</button>
+      <button ion-button clear class="button-core nav-button-color" (click)="updateTip(.15)">15%</button>
+      <button ion-button clear class="button-core nav-button-color" (click)="updateTip(.20)">20%</button>
       <ion-input placeholder="Custom" type="number" [(ngModel)]="tipForm" name="tipForm" (keyup)="changeTip()"></ion-input>
     </ion-row>
-  </ion-list>
-  <span style="float:left; padding-left:8px; font-size:24px">
-    Price: ${{getSum()}} <br> Tax: ${{getTax()}} <br> Tip: ${{getTip()}} <br> Total: ${{getTotal()}}
-  </span>
+    <span class="price-format">
+      Price: ${{getSum()}} <br> Tax: ${{getTax()}} <br> Tip: ${{getTip()}} <br> Total: ${{getTotal()}}
+    </span>
+  </ion-card>
 </ion-content>
 
-<ion-footer style="text-align:center">
-  <button ion-button class="button-core" [disabled]="isCartEmpty()" (click)="checkout()">
+<ion-footer class="bottom-nav-format center-text footer">
+  <button ion-button clear class="button-core extend-button nav-button-color bottom-nav-text" [disabled]="isCartEmpty()" (click)="checkout()">
     Checkout
   </button>
 </ion-footer>

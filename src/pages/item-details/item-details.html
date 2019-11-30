@@ -1,36 +1,38 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="nav-color">
       <button ion-button clear large class="button-core back-button-format nav-button-color" (click)="gotoCookies()">
           <ion-icon name="arrow-back"></ion-icon>
       </button>
-      <ion-label class="center-text product-selection-format">Add Cookie</ion-label>
+      <ion-label class="center-text nav-header-format" color="primary">Add Cookie</ion-label>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content>
-  <h2 text-center *ngIf="selectedItem">
-  <img class="image-format" src={{selectedItem.imageLocation}} />
-    {{selectedItem.name}} Cookie
-  </h2>
-  <h3 text-center *ngIf="selectedItem">
-    Price: ${{selectedItem.price}}
-  </h3>
-  <h4 text-center *ngIf="selectedItem">
-    {{selectedItem.description}}
-  </h4>
-  <ion-list>
-    <ion-list-header>
-        Add Ons
-    </ion-list-header>
-    <ion-item *ngFor="let element of addons">
-      <ion-label>{{ element.name }}</ion-label>
-      <ion-label >Price: ${{ element.price }}</ion-label>
-      <ion-checkbox color="dark" [checked]="unchecked" (click)="selectAddon(element)" [(ngModel)]="element.checked"></ion-checkbox>
-    </ion-item>
-  </ion-list>
+  <div *ngIf="selectedItem">
+      <img class="image-format" src={{selectedItem.imageLocation}} />
+  </div>
+  <ion-card color="primary">
+      <ion-label text-center class="important-format" color="text" *ngIf="selectedItem">
+          {{selectedItem.name}} Cookie
+      </ion-label>
+      <ion-label text-center class="info-text-format" color="text" *ngIf="selectedItem">
+        Price: ${{selectedItem.price}}
+      </ion-label>
+      <ion-label text-center class="info-text-format" color="text" *ngIf="selectedItem">
+        {{selectedItem.description}}
+      </ion-label>
+  </ion-card>
+  <ion-card color="primary">
+      <ion-label text-center class="important-format" color="text">Add Ons</ion-label>
+      <ion-item color="primary" *ngFor="let element of addons">
+        <ion-label color="text">{{ element.name }}</ion-label>
+        <ion-label color="text">Price: ${{ element.price }}</ion-label>
+        <ion-checkbox color="alternate" [checked]="unchecked" (click)="selectAddon(element)" [(ngModel)]="element.checked"></ion-checkbox>
+      </ion-item>
+  </ion-card>
 </ion-content>
 
-<ion-footer style="text-align:center">
-    <button ion-button class="button-core" (click)="addToCart()">Add To Cart</button>
+<ion-footer class="bottom-nav-format center-text">
+    <button ion-button clear class="button-core nav-button-color extend-button bottom-nav-text" (click)="addToCart()">Add To Cart</button>
 </ion-footer>
