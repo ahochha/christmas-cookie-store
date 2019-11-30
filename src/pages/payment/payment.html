@@ -9,7 +9,7 @@
   <ion-grid>
     <ion-row style="padding-top: 5px">
       <ion-col>
-        <button ion-button class="button-core" *ngIf="isCard" block large (click)="toggleCard()">
+        <button ion-button class="button-core toggle-button" *ngIf="isCard" block large (click)="toggleCard()">
           <ion-icon name="card"></ion-icon> Credit Card
         </button>
         <button ion-button class="button-core" *ngIf="!isCard" block large style="opacity: .3" (click)="toggleCard()">
@@ -17,7 +17,7 @@
         </button>
       </ion-col>
       <ion-col>
-        <button ion-button class="button-core" *ngIf="!isCard" block large (click)="toggleCard()">PayPal</button>
+        <button ion-button class="button-core toggle-button" *ngIf="!isCard" block large (click)="toggleCard()">PayPal</button>
         <button ion-button class="button-core" *ngIf="isCard" block large style="opacity: .3" (click)="toggleCard()">PayPal</button>
       </ion-col>
     </ion-row>

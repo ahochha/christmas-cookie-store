@@ -3,29 +3,29 @@
       <button ion-button clear large class="button-core back-button-format nav-button-color" (click)="gotoCookies()">
           <ion-icon name="arrow-back"></ion-icon>
       </button>
-      <ion-label class="center-text nav-header-format" color="primary">Add Cookie</ion-label>
+      <ion-label class="center-text nav-header-format" color="text">Add Cookie</ion-label>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content>
+<ion-content style="background-color: #efefef">
   <div *ngIf="selectedItem">
       <img class="image-format" src={{selectedItem.imageLocation}} />
   </div>
-  <ion-card color="primary">
+  <ion-card>
       <ion-label text-center class="important-format" color="text" *ngIf="selectedItem">
           {{selectedItem.name}} Cookie
       </ion-label>
       <ion-label text-center class="info-text-format" color="text" *ngIf="selectedItem">
         Price: ${{selectedItem.price}}
       </ion-label>
-      <ion-label text-center class="info-text-format" color="text" *ngIf="selectedItem">
+      <ion-label text-center text-wrap class="info-text-format" color="text" *ngIf="selectedItem">
         {{selectedItem.description}}
       </ion-label>
   </ion-card>
-  <ion-card color="primary">
+  <ion-card>
       <ion-label text-center class="important-format" color="text">Add Ons</ion-label>
-      <ion-item color="primary" *ngFor="let element of addons">
+      <ion-item *ngFor="let element of addons">
         <ion-label color="text">{{ element.name }}</ion-label>
         <ion-label color="text">Price: ${{ element.price }}</ion-label>
         <ion-checkbox color="alternate" [checked]="unchecked" (click)="selectAddon(element)" [(ngModel)]="element.checked"></ion-checkbox>

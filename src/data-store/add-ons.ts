@@ -5,5 +5,6 @@ export const ADDONS: AddOn[] = [
     {name: "Melted Chocolate", price: 1},
     {name: "Frosting", price: 0.5},
     {name: "Hot Cocoa", price: 2},
-    {name: "Peanut Butter", price: 0.5}
+    {name: "Peanut Butter", price: 0.5},
+    {name: "Eggnog", price: 3}
 ];
