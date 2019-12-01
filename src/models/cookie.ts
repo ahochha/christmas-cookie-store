@@ -5,5 +5,6 @@ export class Cookie {
     imageLocation: string;
     price: number;
     description: string;
+    quantity: number;
     addOns?: AddOn [];
 }

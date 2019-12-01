@@ -12,8 +12,8 @@
 <ion-content padding style="background-color: #efefef">
   <ion-card>
     <ion-grid>
-        <ion-row *ngFor="let item of cookies" (click)="itemDetails(item)">
-          <ion-col>
+        <ion-row *ngFor="let item of cookies" (click)="gotoItemDetails(item)">
+          <ion-col class="image-col-width">
             <img class="cart-image-format" src={{item.imageLocation}} />
           </ion-col>
           <ion-col text-wrap class="name-col-width">
@@ -22,10 +22,13 @@
               - {{addon.name}}
             </ion-label>
           </ion-col>
-          <ion-col>
-            <ion-label class="center-text cart-price-format" color="text">${{getPrice(item)}}</ion-label>
+          <ion-col class="quantity-col-width">
+            <ion-label class="center-text cart-number-format" color="text">x{{item.quantity}}</ion-label>
           </ion-col>
-          <ion-col>
+          <ion-col class="price-col-width">
+            <ion-label class="cart-number-format" color="text">${{getPrice(item)}}</ion-label>
+          </ion-col>
+          <ion-col class="delete-col-width">
             <button ion-button class="button-core delete-item" style="float:right" (click)="removeItem(item)"><ion-icon name="trash"></ion-icon></button>
           </ion-col>
         </ion-row>

@@ -6,8 +6,12 @@ export class Cart{
     private static cookies: Cookie [] = [];
     private static totalPrice: number;
 
-    static addToCart(cookie: Cookie){
+    static addToCart(cookie: Cookie) {
         this.cookies.push(cookie);
+    }
+
+    static updateCookieInCart(cookie: Cookie, index: number) {
+        this.cookies[index] = cookie;
     }
     
     static getCookies(): Observable<Cookie[]> {

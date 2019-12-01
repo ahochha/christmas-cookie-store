@@ -3,7 +3,8 @@
       <button ion-button clear large class="button-core back-button-format nav-button-color" (click)="gotoCookies()">
           <ion-icon name="arrow-back"></ion-icon>
       </button>
-      <ion-label class="center-text nav-header-format" color="text">Add Cookie</ion-label>
+      <ion-label class="center-text nav-header-format" *ngIf="!isUpdatingCookie()" color="text">Add Cookie</ion-label>
+      <ion-label class="center-text nav-header-format" *ngIf="isUpdatingCookie()" color="text">Update Cookie</ion-label>
   </ion-navbar>
 </ion-header>
 
@@ -13,15 +14,41 @@
       <img class="image-format" src={{selectedItem.imageLocation}} />
   </div>
   <ion-card>
-      <ion-label text-center class="important-format" color="text" *ngIf="selectedItem">
-          {{selectedItem.name}} Cookie
-      </ion-label>
-      <ion-label text-center class="info-text-format" color="text" *ngIf="selectedItem">
-        Price: ${{selectedItem.price}}
-      </ion-label>
-      <ion-label text-center text-wrap class="info-text-format" color="text" *ngIf="selectedItem">
+    <ion-label text-center class="important-format" color="text" *ngIf="selectedItem">
+        {{selectedItem.name}} Cookie
+    </ion-label>
+    <ion-label text-center class="info-text-format" color="text" *ngIf="selectedItem">
+      Price: ${{selectedItem.price}}
+    </ion-label>
+    <ion-label text-center text-wrap class="info-text-format" color="text" *ngIf="selectedItem">
         {{selectedItem.description}}
-      </ion-label>
+    </ion-label> 
+    <ion-list>
+      <ion-list-header class="clear-padding">
+          <ion-label text-center text-wrap class="info-text-format quantity-text" color="text" *ngIf="selectedItem">
+              How many cookies would you like?
+          </ion-label> 
+      </ion-list-header>
+    </ion-list>
+    <ion-row>
+      <span class="center" style="margin-bottom:15px">
+        <ion-row>
+          <ion-col>
+              <button ion-button class="button-core" (click)="cookieQuantity('add')">
+                  <ion-icon name="add"></ion-icon>
+              </button>           
+          </ion-col>
+          <ion-col>
+            <ion-label class="center-text quantity-format" *ngIf="selectedItem">{{selectedItem.quantity}}</ion-label>
+          </ion-col>
+          <ion-col>
+              <button ion-button class="button-core" (click)="cookieQuantity('remove')" [disabled]="isQuantityOne()">
+                  <ion-icon name="remove"></ion-icon>
+              </button>
+          </ion-col>
+        </ion-row>
+      </span>
+    </ion-row>
   </ion-card>
   <ion-card>
       <ion-label text-center class="important-format" color="text">Add Ons</ion-label>
@@ -34,5 +61,6 @@
 </ion-content>
 
 <ion-footer class="bottom-nav-format center-text">
-    <button ion-button clear class="button-core nav-button-color extend-button bottom-nav-text" (click)="addToCart()">Add To Cart</button>
+    <button ion-button clear class="button-core nav-button-color extend-button bottom-nav-text" *ngIf="!isUpdatingCookie()" (click)="modifyCart('add')">Add To Cart</button>
+    <button ion-button clear class="button-core nav-button-color extend-button bottom-nav-text" *ngIf="isUpdatingCookie()" (click)="modifyCart('update')">Confirm Changes</button>
 </ion-footer>

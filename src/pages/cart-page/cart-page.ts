@@ -5,6 +5,7 @@ import { Cookie } from '../../models/cookie';
 import { ListPage } from '../list/list';
 import { PaymentPage } from '../payment/payment';
 import { DelayProvider } from '../../providers/delay/delay';
+import { ItemDetailsPage } from '../item-details/item-details';
 
 @IonicPage()
 @Component({
@@ -46,7 +47,21 @@ export class CartPage {
     this.navCtrl.setRoot(ListPage);
   }
 
-  itemDetails(item) {
+  async gotoItemDetails(item) {
+    let itemIndex: number = this.cookies.indexOf(item);
+    if(itemIndex == -1) {
+      itemIndex = null;
+    }
+    if(item.addOns){
+      for(let addon of item.addOns){
+        addon.checked = true;
+      }
+    }
+    await this.delayProvider.delay(200);
+    this.navCtrl.setRoot(ItemDetailsPage, {
+      item: item,
+      index: itemIndex
+    });
   }
 
   async clearCart() {
@@ -61,7 +76,7 @@ export class CartPage {
   }
 
   getPrice(item) {
-    let price = item.price;
+    let price = item.price * item.quantity;
 
     if (item.addOns) {
       for (const addon of item.addOns) {
@@ -76,7 +91,7 @@ export class CartPage {
   getSum() {
     this.totalPrice = 0;
     for (const item of this.cookies) {
-      this.totalPrice += item.price;
+      this.totalPrice += item.price * item.quantity;
       if (item.addOns) {
         for (const addon of item.addOns) {
           this.totalPrice += addon.price;
