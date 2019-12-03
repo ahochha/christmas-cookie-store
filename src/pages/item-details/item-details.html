@@ -18,7 +18,7 @@
         {{selectedItem.name}} Cookie
     </ion-label>
     <ion-label text-center class="info-text-format" color="text" *ngIf="selectedItem">
-      Price: ${{selectedItem.price}}
+      Price: ${{formatNumber(selectedItem.price)}}
     </ion-label>
     <ion-label text-center text-wrap class="info-text-format" color="text" *ngIf="selectedItem">
         {{selectedItem.description}}
@@ -54,7 +54,7 @@
       <ion-label text-center class="important-format" color="text">Add Ons</ion-label>
       <ion-item *ngFor="let element of addons">
         <ion-label color="text">{{ element.name }}</ion-label>
-        <ion-label color="text">Price: ${{ element.price }}</ion-label>
+        <ion-label color="text">Price: ${{ formatNumber(element.price) }}</ion-label>
         <ion-checkbox color="alternate" [checked]="unchecked" (click)="selectAddon(element)" [(ngModel)]="element.checked"></ion-checkbox>
       </ion-item>
   </ion-card>

@@ -14,13 +14,15 @@ import { AddOn } from '../../models/add-on';
 })
 export class ItemDetailsPage {
   cookieIndex: number = null;
+  tempAddOns: AddOn[] = [];
   selectedItem: Cookie;
   addons = ADDONS;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public loadingCtrl: LoadingController, public delayProvider: DelayProvider) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = new Cookie();
-    const item: Cookie = JSON.parse(JSON.stringify(this.navParams.get('item')));
+    const item: Cookie = Object.assign({}, this.navParams.get('item'));
+    console.log(this.tempAddOns);
     this.selectedItem.name = item.name;
     this.selectedItem.price = item.price;
     this.selectedItem.description = item.description;
@@ -43,6 +45,7 @@ export class ItemDetailsPage {
         this.selectedItem.quantity = 1;
       }
     } else {
+      this.tempAddOns = [...this.selectedItem.addOns];
       this.addons.forEach(addon => this.updateCheckboxes(addon));
     }
   }
@@ -54,24 +57,19 @@ export class ItemDetailsPage {
   }
 
   updateCheckboxes(addon: AddOn) {
-    console.log(this.selectedItem.addOns, addon);
-    if(this.selectedItem.addOns){
-      
-      let index = this.selectedItem.addOns.indexOf(addon);
-      console.log(typeof(addon), typeof(this.selectedItem.addOns),index);
-      if (this.selectedItem.addOns[index] != undefined && this.selectedItem.addOns[index].checked == true) {
-        console.log('testing');
-        addon.checked = true;
-      } else {
-        addon.checked = false;
-      }
-    }
-    else{
-      this.selectedItem.addOns =[];
+    let index = this.tempAddOns.indexOf(addon);
+
+    if (this.tempAddOns[index] != undefined && this.tempAddOns[index].checked == true) {
+      addon.checked = true;
+    } else {
+      addon.checked = false;
     }
   }
 
   async modifyCart(operation: string) {
+    console.log(this.tempAddOns);
+    this.selectedItem.addOns = this.tempAddOns;
+
     if(operation == 'add'){
       Cart.addToCart(this.selectedItem);
     } else if(operation == 'update') {
@@ -86,15 +84,15 @@ export class ItemDetailsPage {
   }
 
   selectAddon(element) {
-    if (this.selectedItem.addOns == undefined){
-      this.selectedItem.addOns = [];
+    if (this.tempAddOns == undefined){
+      this.tempAddOns = [];
     }
     if (element.checked == true) {
-      this.selectedItem.addOns.push(element);
+      this.tempAddOns.push(element);
     } else {
-      const index = this.selectedItem.addOns.indexOf(element);
+      const index = this.tempAddOns.indexOf(element);
       if (index > -1) {
-         this.selectedItem.addOns.splice(index, 1);
+         this.tempAddOns.splice(index, 1);
       }
    }
   } 
@@ -121,6 +119,10 @@ export class ItemDetailsPage {
     this.selectedItem = undefined;
     await this.delayProvider.delay(200);
     this.navCtrl.setRoot(ListPage);
+  }
+
+  formatNumber(num: number) {
+    return num.toFixed(2);
   }
 
   presentLoading(text: string) {
