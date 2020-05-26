@@ -1,11 +1,15 @@
 # Christmas Cookie Store
-the store for selling only the best Christmas cookies
+The store for selling only the best Christmas cookies! The Christmas Cookie Store started as a class project, but over time has evolved into a mini personal project for me. The application was built with heavy focus put on the mobile experience and looks.
 
-## Description
+## Usage and Features
 
-The Christmas Cookie Store started as a class project, but over time has evolved into a mini personal project for me. The application was built with heavy focus put on the mobile experience and looks.
+Despite its small size and focus on looks, the application boasts features commonly found in eatery applications. 
 
-Despite its small size and focus on looks, the application boasts features commonly found in eatery applications. Users can select a cookie by scrolling through the list of cookies available. They can then select the number of cookies and include any add-ons they would like. If errors were made, modification can be done by updating or deleting the cookie in the cart. Finally, they can simulate checkout by going to the payment page.
+Users can:
+* Select a cookie by scrolling through the list of cookies available
+* For a specific cookie, select the quantity and include any add-ons they would like
+* Correct any mistakes by modifying or deleting cookies in the cart (tap the cookie to make changes to it)
+* Simulate checkout by going to the payment page
 
 ## Link
 
