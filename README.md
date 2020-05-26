@@ -1,5 +1,5 @@
 # Christmas Cookie Store
-The store for selling only the best Christmas cookies! The Christmas Cookie Store started as a class project, but over time has evolved into a mini personal project for me. The application was built with heavy focus put on the mobile experience and looks.
+The store for selling only the best Christmas cookies! The Christmas Cookie Store started as a group project in SDSU's Human Factors and User Interfaces course, but over time has evolved into a mini personal project for me. The application was built with heavy focus put on the mobile experience and looks.
 
 ## Usage and Features
 
@@ -19,3 +19,8 @@ Tinker around with the application yourself by clicking [here](https://ahochha.g
 
 * [Angular 7](https://angular.io/) - Framework for building mobile and desktop web applications
 * [Ionic 2](https://ionicframework.com/) - Wraps Angular making the framework even more optimized for mobile devices
+
+## Acknowledgements
+
+* Michael Bauer and Ferdinand Ramos - for helping with initial development while the project was coursework
+* Christmas cookies - for being so dang tasty
