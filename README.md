@@ -19,8 +19,3 @@ Tinker around with the application yourself by clicking [here](https://ahochha.g
 
 * [Angular 7](https://angular.io/) - Framework for building mobile and desktop web applications
 * [Ionic 2](https://ionicframework.com/) - Wraps Angular making the framework even more optimized for mobile devices
-
-## Acknowledgements
-
-* Michael Bauer and Ferdinand Ramos - for helping with initial development while the project was coursework
-* Christmas cookies - for being so dang tasty
