@@ -17,7 +17,7 @@ Tinker around with the application yourself by clicking [here](https://ahochha.g
 
 ## Built With
 ### Languages Used:
-* TypeScript/Javascript
+* TypeScript/JavaScript
 * HTML
 * CSS
 
