@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ListPage } from '../list/list';
-import * as Payment from 'payment';
-Payment.fns.restrictNumeric = Payment.restrictNumeric;
-Payment.fns.formatCardExpiry = Payment.formatCardExpiry;
-Payment.fns.formatCardCVC = Payment.formatCardCVC;
-import { CreditCardValidator } from 'ngx-credit-cards';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Cart } from '../../data-store/cart';
 import { DelayProvider } from '../../providers/delay/delay';
@@ -23,9 +18,9 @@ export class PaymentPage {
 
     this.formGroup = this._formBuilder.group({
       email: ['', Validators.required],
-      cardNumber: ['', [CreditCardValidator.validateCardNumber]],
-      cardExpDate: ['', [CreditCardValidator.validateCardExpiry]],
-      cardCvv: ['', [CreditCardValidator.validateCardCvc]],
+      cardNumber: ['', Validators.required],
+      cardExpDate: ['', Validators.required],
+      cardCvv: ['', Validators.required],
       cardName: ['', Validators.compose([Validators.required, Validators.minLength(2)])],
     });
     this.total = Cart.getPrice();

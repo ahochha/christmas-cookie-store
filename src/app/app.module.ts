@@ -8,7 +8,6 @@ import { ListPage } from '../pages/list/list';
 import { CartPage } from '../pages/cart-page/cart-page';
 import { CheckoutPage } from '../pages/checkout/checkout';
 import { PaymentPage } from '../pages/payment/payment';
-import { NgXCreditCardsModule } from 'ngx-credit-cards';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DelayProvider } from '../providers/delay/delay';
@@ -24,7 +23,6 @@ import { DelayProvider } from '../providers/delay/delay';
   ],
   imports: [
     BrowserModule,
-    NgXCreditCardsModule,
 
     IonicModule.forRoot(MyApp),
   ],

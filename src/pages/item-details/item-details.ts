@@ -22,7 +22,6 @@ export class ItemDetailsPage {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = new Cookie();
     const item: Cookie = Object.assign({}, this.navParams.get('item'));
-    console.log(this.tempAddOns);
     this.selectedItem.name = item.name;
     this.selectedItem.price = item.price;
     this.selectedItem.description = item.description;
@@ -67,7 +66,6 @@ export class ItemDetailsPage {
   }
 
   async modifyCart(operation: string) {
-    console.log(this.tempAddOns);
     this.selectedItem.addOns = this.tempAddOns;
 
     if(operation == 'add'){

@@ -27,7 +27,7 @@ export class MyApp {
   ) {
     this.initializeApp();
 
-    // set our app's pages
+    // set the app's pages
     this.pages = [
       { title: 'Bagels List', component: ListPage },
       { title: 'Cart', component: CartPage }
