@@ -1,6 +1,9 @@
 # Christmas Cookie Store
 The store for selling only the best Christmas cookies! The Christmas Cookie Store started as a group project in SDSU's Human Factors and User Interfaces course, but over time has evolved into a mini personal project for me. The application was built with heavy focus put on the mobile experience and looks.
 
+### Video Demo
+Learn more about this project by clicking [here](https://drive.google.com/file/d/1LkqQgIEhue__h-oAcLJqmHgxH4OX9Kx0/view?usp=sharing)!
+
 ## Features
 
 Despite its small size and focus on looks, the application boasts features commonly found in eatery applications. 
